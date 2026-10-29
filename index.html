@@ -1,0 +1,722 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="AquaSustain Solar: IoT-based smart solar desalination and water-energy optimization system.">
+  <title>AquaSustain Solar | Smart Water Future</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+
+  <header class="header">
+    <a href="#home" class="logo">
+      <span class="logo-icon">☀</span>
+      AquaSustain<span>Solar</span>
+    </a>
+
+    <button class="menu-toggle" id="menuToggle"
+      aria-label="Toggle navigation" aria-expanded="false">
+      ☰
+    </button>
+
+    <nav class="nav" id="navMenu">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#dashboard">Dashboard</a>
+      <a href="#process">How It Works</a>
+      <a href="#contact" class="nav-button">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+
+    <section class="hero" id="home">
+      <div class="hero-content">
+        <p class="eyebrow">CLEAN WATER. CLEAN ENERGY. BETTER FUTURE.</p>
+
+        <h1>Powering Clean Water with <span>Solar Intelligence.</span></h1>
+
+        <p class="hero-description">
+          An IoT-based smart solar desalination and water-energy
+          optimization system designed to turn available water resources
+          into cleaner water using renewable energy and intelligent monitoring.
+        </p>
+
+        <div class="hero-actions">
+          <a href="#dashboard" class="btn btn-primary">Explore Dashboard ↗</a>
+          <a href="#about" class="btn btn-outline">Discover Our Project</a>
+        </div>
+
+        <div class="hero-stats">
+          <div>
+            <strong>Solar</strong>
+            <span>Renewable Energy</span>
+          </div>
+          <div>
+            <strong>IoT</strong>
+            <span>Smart Monitoring</span>
+          </div>
+          <div>
+            <strong>Smart</strong>
+            <span>Resource Management</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="solar-orbit orbit-one"></div>
+        <div class="solar-orbit orbit-two"></div>
+        <div class="sun">☀</div>
+
+        <div class="solar-panel">
+          <div class="panel-grid"></div>
+          <div class="panel-stand"></div>
+        </div>
+
+        <div class="water-drop">💧</div>
+
+        <div class="floating-card card-energy">
+          <span>☀ Solar Powered</span>
+          <strong>Clean Energy</strong>
+        </div>
+
+        <div class="floating-card card-water">
+          <span>◉ Smart Monitoring</span>
+          <strong>Water Intelligence</strong>
+        </div>
+      </div>
+    </section>
+
+
+<section class="section dashboard-section" id="dashboard">
+      <div class="section-heading">
+        <p class="eyebrow">SYSTEM CONTROL CENTER</p>
+        <h2>Smart Monitoring <span>Dashboard</span></h2>
+        <p>
+          Explore sample readings for a solar desalination system.
+          These readings are simulated, not from physical sensors.
+        </p>
+      </div>
+
+      <div class="dashboard-toolbar">
+        <div>
+          <span class="status-dot"></span>
+          <strong id="systemStatus">Demo System Online</strong>
+          <p>Simulated sensor data</p>
+        </div>
+        <button class="btn btn-primary" id="refreshBtn">↻ Refresh Readings</button>
+      </div>
+
+      <div class="metrics-grid">
+        <article class="metric-card">
+          <div class="metric-top">
+            <span>Solar Power</span><span class="metric-icon">☀️</span>
+          </div>
+          <h3><span id="solarPower">2.4</span> <small>kW</small></h3>
+          <p class="metric-note">Solar generation</p>
+        </article>
+
+        <article class="metric-card">
+          <div class="metric-top">
+            <span>Water Produced</span><span class="metric-icon">💧</span>
+          </div>
+          <h3><span id="waterProduced">120</span> <small>L/day</small></h3>
+          <p class="metric-note">Daily production estimate</p>
+        </article>
+
+        <article class="metric-card">
+          <div class="metric-top">
+            <span>Water Temperature</span><span class="metric-icon">🌡️</span>
+          </div>
+          <h3><span id="temperature">28.5</span> <small>°C</small></h3>
+          <p class="metric-note">Sample sensor reading</p>
+        </article>
+
+        <article class="metric-card">
+          <div class="metric-top">
+            <span>Storage Tank</span><span class="metric-icon">🚰</span>
+          </div>
+          <h3><span id="tankLevel">76</span><small>%</small></h3>
+          <div class="progress-track">
+            <div class="progress-fill" id="tankProgress" style="width: 76%"></div>
+          </div>
+          <p class="metric-note">Estimated storage level</p>
+        </article>
+      </div>
+
+      <div class="dashboard-bottom">
+        <article class="panel">
+          <h3>System Performance</h3>
+          <p>Illustrative solar output over six time points</p>
+          <div class="chart" id="solarChart" role="img"
+            aria-label="Illustrative solar power chart"></div>
+          <div class="chart-labels">
+            <span>08:00</span><span>10:00</span><span>12:00</span>
+            <span>14:00</span><span>16:00</span><span>18:00</span>
+          </div>
+        </article>
+
+        <article class="panel">
+          <h3>Water Quality</h3>
+          <p>Example measurements for demonstration</p>
+
+          <div class="quality-row">
+            <div><span>pH Level</span><strong id="phValue">7.2</strong></div>
+            <div class="quality-track"><div id="phBar" style="width: 72%"></div></div>
+          </div>
+
+          <div class="quality-row">
+            <div><span>TDS</span><strong><span id="tdsValue">180</span> ppm</strong></div>
+            <div class="quality-track"><div id="tdsBar" style="width: 18%"></div></div>
+          </div>
+
+          <div class="quality-row">
+            <div><span>System Efficiency</span><strong id="efficiency">84</strong>%</div>
+            <div class="quality-track"><div id="efficiencyBar" style="width: 84%"></div></div>
+          </div>
+
+          <p class="quality-disclaimer">
+            Sample values only. Water safety must be confirmed using
+            calibrated instruments and applicable drinking-water standards.
+          </p>
+        </article>
+      </div>
+    </section>
+
+  
+
+    <section class="section process-section" id="process">
+      <div class="section-heading">
+        <p class="eyebrow">HOW IT WORKS</p>
+        <h2>From Sunlight to <span>Clean Water</span></h2>
+        <p>A simplified overview of the proposed system workflow.</p>
+      </div>
+
+      <div class="process-grid">
+        <article class="process-step">
+          <span class="step-number">01</span>
+          <div class="process-icon">☀️</div>
+          <h3>Solar Generation</h3>
+          <p>Solar panels convert sunlight into electrical energy.</p>
+        </article>
+
+        <article class="process-step">
+          <span class="step-number">02</span>
+          <div class="process-icon">🌊</div>
+          <h3>Water Desalination</h3>
+          <p>The selected treatment process removes salts from saline feedwater.</p>
+        </article>
+
+        <article class="process-step">
+          <span class="step-number">03</span>
+          <div class="process-icon">📡</div>
+          <h3>IoT Data Collection</h3>
+          <p>Sensors collect readings such as temperature, tank level, and water quality.</p>
+        </article>
+
+        <article class="process-step">
+          <span class="step-number">04</span>
+          <div class="process-icon">📊</div>
+          <h3>Smart Optimization</h3>
+          <p>Monitoring data helps evaluate system performance and energy use.</p>
+        </article>
+      </div>
+    </section>
+<!-- AquaSustain Solar: Future Features -->
+<section class="future-section" id="future-features">
+  <div class="future-heading">
+    <p class="future-eyebrow">FUTURE DEVELOPMENT</p>
+    <h2>What We Can <span>Add Next</span></h2>
+    <p>
+      Extend AquaSustain Solar with real-time IoT monitoring,
+      historical data storage, and intelligent energy analytics.
+    </p>
+  </div>
+
+  <div class="future-list">
+
+    <article class="future-item">
+      <div class="future-icon">⌘</div>
+      <div class="future-content">
+        <h3>ESP32 / Arduino Integration</h3>
+        <p>
+          Receive readings from sensors connected to your prototype,
+          including water temperature, tank level, and water quality.
+        </p>
+        <button class="future-btn" data-feature="iot">
+          Explore Integration →
+        </button>
+      </div>
+    </article>
+
+    <article class="future-item">
+      <div class="future-icon">▤</div>
+      <div class="future-content">
+        <h3>Database and Live Updates</h3>
+        <p>
+          Store historical sensor readings and display actual system
+          performance through a connected database.
+        </p>
+        <button class="future-btn" data-feature="database">
+          Explore Database →
+        </button>
+      </div>
+    </article>
+
+    <article class="future-item">
+      <div class="future-icon">↗</div>
+      <div class="future-content">
+        <h3>Advanced Analytics</h3>
+        <p>
+          Compare solar energy generation, water output, electricity
+          consumption, and overall system performance.
+        </p>
+        <button class="future-btn" data-feature="analytics">
+          Explore Analytics →
+        </button>
+      </div>
+    </article>
+
+  </div>
+
+  <div class="future-details" id="futureDetails" hidden aria-live="polite">
+    <h3 id="detailTitle">Feature details</h3>
+    <p id="detailText"></p>
+    <button id="closeDetails" class="future-btn" type="button">
+      Close details ✕
+    </button>
+  </div>
+</section>
+n>
+    
+<section class="section energy-section" id="energy">
+  <div class="section-heading">
+    <p class="eyebrow">ENERGY ANALYTICS</p>
+    <h2>Electricity Consumption <span>Calculator</span></h2>
+    <p>
+      Estimate electricity consumption per litre of desalinated water,
+      daily energy requirements, and solar power requirements.
+    </p>
+  </div>
+
+  <div class="energy-layout">
+    <div class="energy-form">
+      <h3>Configure Your System</h3>
+
+      <label for="waterInput">Water production (litres/day)</label>
+      <input type="number" id="waterInput" value="120" min="1" max="1000000">
+
+      <label for="energyInput">Energy consumption (kWh per 1,000 litres)</label>
+      <input type="number" id="energyInput" value="4" min="0.01" max="1000" step="0.1">
+
+      <label for="solarHours">Effective solar hours per day</label>
+      <input type="number" id="solarHours" value="5" min="1" max="24" step="0.5">
+
+      <label for="systemLoss">Solar system losses (%)</label>
+      <input type="number" id="systemLoss" value="20" min="0" max="90">
+
+      <button type="button" class="btn btn-primary" id="calculateEnergy">
+        Calculate Consumption
+      </button>
+
+      <p class="energy-hint">
+        Default values are illustrative assumptions for planning,
+        not measured performance data.
+      </p>
+    </div>
+
+    <div class="energy-results" aria-live="polite">
+      <h3>Your Estimated Results</h3>
+
+      <div class="energy-result-grid">
+        <article class="energy-result-card">
+          <span>Electricity per litre</span>
+          <strong id="perLitre">4 Wh</strong>
+          <small>Wh/L of water produced</small>
+        </article>
+
+        <article class="energy-result-card">
+          <span>Daily electricity</span>
+          <strong id="dailyEnergy">0.48 kWh</strong>
+          <small>Energy required per day</small>
+        </article>
+
+        <article class="energy-result-card">
+          <span>Monthly electricity</span>
+          <strong id="monthlyEnergy">14.4 kWh</strong>
+          <small>Based on 30 days</small>
+        </article>
+
+        <article class="energy-result-card">
+          <span>Estimated solar capacity</span>
+          <strong id="solarCapacity">0.12 kW</strong>
+          <small>Approximate minimum panel capacity</small>
+        </article>
+      </div>
+
+      <div class="energy-summary">
+        <div class="energy-summary-header">
+          <span>Daily energy requirement</span>
+          <strong id="energySummary">0.48 kWh/day</strong>
+        </div>
+        <div class="energy-progress">
+          <div id="energyProgress"></div>
+        </div>
+        <p id="energyExplanation">
+          Adjust the inputs to estimate the energy needed for your system.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+    <section class="section about-section" id="about">
+      <div class="section-heading">
+        <p class="eyebrow">ABOUT THE PROJECT</p>
+        <h2>Smarter Water Management for a <span>Sustainable World</span></h2>
+        <p>
+          AquaSustain Solar integrates solar power, desalination technology,
+          and Internet of Things sensors to support efficient water
+          purification and energy management.
+        </p>
+      </div>
+
+      <div class="feature-grid">
+        <article class="feature-card">
+          <div class="feature-icon">☀️</div>
+          <h3>Solar Energy</h3>
+          <p>Uses renewable solar energy as a power source for the water treatment system.</p>
+        </article>
+
+        <article class="feature-card">
+          <div class="feature-icon">💧</div>
+          <h3>Smart Desalination</h3>
+          <p>Supports the process of removing dissolved salts from saline water.</p>
+        </article>
+
+        <article class="feature-card">
+          <div class="feature-icon">📡</div>
+          <h3>IoT Monitoring</h3>
+          <p>Monitors water and system parameters through connected sensors.</p>
+        </article>
+
+        <article class="feature-card">
+          <div class="feature-icon">⚡</div>
+          <h3>Energy Optimization</h3>
+          <p>Helps track energy demand and identify opportunities for efficient operation.</p>
+        </article>
+      </div>
+    </section>
+
+    
+    <section class="section process-section" id="process">
+      <div class="section-heading">
+        <p class="eyebrow">HOW IT WORKS</p>
+        <h2>From Sunlight to <span>Clean Water</span></h2>
+        <p>A simplified overview of the proposed system workflow.</p>
+      </div>
+
+      <div class="process-grid">
+        <article class="process-step">
+          <span class="step-number">01</span>
+          <div class="process-icon">☀️</div>
+          <h3>Solar Generation</h3>
+          <p>Solar panels convert sunlight into electrical energy.</p>
+        </article>
+
+        <article class="process-step">
+          <span class="step-number">02</span>
+          <div class="process-icon">🌊</div>
+          <h3>Water Desalination</h3>
+          <p>The selected treatment process removes salts from saline feedwater.</p>
+        </article>
+
+        <article class="process-step">
+          <span class="step-number">03</span>
+          <div class="process-icon">📡</div>
+          <h3>IoT Data Collection</h3>
+          <p>Sensors collect readings such as temperature, tank level, and water quality.</p>
+        </article>
+
+        <article class="process-step">
+          <span class="step-number">04</span>
+          <div class="process-icon">📊</div>
+          <h3>Smart Optimization</h3>
+          <p>Monitoring data helps evaluate system performance and energy use.</p>
+        </article>
+      </div>
+    </section>
+    
+<!-- Live Solar Energy Monitoring -->
+<section class="section live-solar-section" id="live-solar">
+  <div class="section-heading">
+    <p class="eyebrow">RENEWABLE ENERGY MONITORING</p>
+    <h2>Live Solar Energy <span>Monitoring</span></h2>
+    <p>
+      Track solar power generation, electrical measurements,
+      and estimated daily energy production.
+    </p>
+  </div>
+
+  <div class="solar-live-toolbar">
+    <div>
+      <span class="live-indicator"></span>
+      <strong id="solarLiveStatus">Demo Monitoring Active</strong>
+      <p id="solarLastUpdated">Waiting for readings...</p>
+    </div>
+    <span class="demo-label">SIMULATED DATA</span>
+  </div>
+
+  <div class="solar-live-grid">
+    <article class="solar-live-card">
+      <div class="solar-live-card-top">
+        <span>Current Solar Power</span>
+        <span>☀️</span>
+      </div>
+      <h3><span id="liveSolarPower">2.40</span> <small>kW</small></h3>
+      <p>Instantaneous power output</p>
+    </article>
+
+    <article class="solar-live-card">
+      <div class="solar-live-card-top">
+        <span>Energy Today</span>
+        <span>⚡</span>
+      </div>
+      <h3><span id="liveSolarEnergy">8.50</span> <small>kWh</small></h3>
+      <p>Illustrative daily energy total</p>
+    </article>
+
+    <article class="solar-live-card">
+      <div class="solar-live-card-top">
+        <span>Solar Voltage</span>
+        <span>🔌</span>
+      </div>
+      <h3><span id="liveSolarVoltage">36.5</span> <small>V</small></h3>
+      <p>Sample panel voltage</p>
+    </article>
+
+    <article class="solar-live-card">
+      <div class="solar-live-card-top">
+        <span>Solar Current</span>
+        <span>📈</span>
+      </div>
+      <h3><span id="liveSolarCurrent">6.58</span> <small>A</small></h3>
+      <p>Sample panel current</p>
+    </article>
+  </div>
+
+  <div class="solar-live-chart-panel">
+    <div class="solar-chart-heading">
+      <div>
+        <h3>Solar Power Output</h3>
+        <p>Recent simulated readings in kilowatts</p>
+      </div>
+      <span class="chart-unit">kW</span>
+    </div>
+
+    <div
+      id="liveSolarChart"
+      class="solar-live-chart"
+      role="img"
+      aria-label="Live simulated solar power output chart">
+    </div>
+
+    <div class="solar-live-chart-labels">
+      <span>Oldest</span>
+      <span>Most recent</span>
+    </div>
+
+    <p class="solar-live-note">
+      Demo mode: values are generated by JavaScript, not read from
+      a physical solar panel or an actual energy meter.
+    </p>
+  </div>
+</section>
+
+
+<!-- Smart Water Tank Monitoring -->
+<section class="section tank-section" id="tank-monitoring">
+  <div class="section-heading">
+    <p class="eyebrow">SMART WATER MANAGEMENT</p>
+    <h2>Smart Water Tank <span>Monitoring</span></h2>
+    <p>
+      Monitor available water, track tank capacity, and identify
+      low-water or overflow conditions.
+    </p>
+  </div>
+
+  <div class="tank-dashboard">
+
+    <article class="tank-visual-card">
+      <div class="tank-card-heading">
+        <div>
+          <h3>Water Storage Tank</h3>
+          <p>Current storage level</p>
+        </div>
+        <span class="tank-demo-badge">DEMO MODE</span>
+      </div>
+
+      <div class="tank-visual-area">
+        <div class="tank-graphic" role="img"
+          id="tankGraphic"
+          aria-label="Water tank is 76 percent full">
+          <div class="tank-water" id="tankWater">
+            <div class="tank-wave"></div>
+          </div>
+          <div class="tank-percentage" id="tankPercentage">76%</div>
+        </div>
+      </div>
+
+      <div class="tank-level-scale">
+        <span>100% Full</span>
+        <span>50%</span>
+        <span>0% Empty</span>
+      </div>
+
+      <div class="tank-capacity-info">
+        <span>Tank capacity</span>
+        <strong><span id="tankCapacityLabel">1,000</span> L</strong>
+      </div>
+    </article>
+
+    <div class="tank-info-column">
+      <article class="tank-metric-card">
+        <div class="tank-metric-icon">💧</div>
+        <div>
+          <p>Available Water</p>
+          <h3><span id="availableWater">760</span> <small>litres</small></h3>
+          <span class="tank-muted">Estimated stored water</span>
+        </div>
+      </article>
+
+      <article class="tank-metric-card">
+        <div class="tank-metric-icon">📊</div>
+        <div>
+          <p>Tank Fill Level</p>
+          <h3><span id="tankLevelPercent">76</span><small>%</small></h3>
+          <div class="tank-progress-track">
+            <div id="tankLevelBar" style="width: 76%"></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="tank-alert-card" id="tankAlertCard" aria-live="polite">
+        <div class="tank-alert-icon" id="tankAlertIcon">✓</div>
+        <div>
+          <h3 id="tankAlertTitle">Tank Level Normal</h3>
+          <p id="tankAlertMessage">
+            The water level is within the configured operating range.
+          </p>
+        </div>
+      </article>
+    </div>
+  </div>
+
+  <div class="tank-controls">
+    <div>
+      <p class="eyebrow">TEST THE MONITORING SYSTEM</p>
+      <h3>Tank Level Simulator</h3>
+      <p>
+        Adjust the slider to test low-water and high-water alerts.
+        These controls simulate sensor readings.
+      </p>
+    </div>
+
+    <div class="tank-slider-area">
+      <label for="tankLevelInput">
+        Simulated water level:
+        <strong><span id="tankSliderValue">76</span>%</strong>
+      </label>
+      <input
+        type="range"
+        id="tankLevelInput"
+        min="0"
+        max="100"
+        value="76"
+        step="1"
+      />
+      <div class="tank-slider-labels">
+        <span>Empty</span>
+        <span>Half full</span>
+        <span>Full</span>
+      </div>
+    </div>
+  </div>
+
+  <p class="tank-disclaimer">
+    Demonstration only: tank level and alerts are simulated in the browser.
+    Real monitoring requires a compatible level sensor and a connected
+    controller such as an ESP32.
+  </p>
+</section>
+
+
+<!-- AquaSustain Solar: Download Report -->
+<section class="section report-section" id="download-report">
+  <div class="report-container">
+    <div class="report-content">
+      <p class="eyebrow">SYSTEM REPORTS</p>
+      <h2>Download Your <span>System Report</span></h2>
+      <p>
+        Export a report of your current solar energy, electricity
+        consumption, water production, and tank monitoring readings.
+      </p>
+
+      <div class="report-features">
+        <span>✓ Solar energy readings</span>
+        <span>✓ Electricity consumption</span>
+        <span>✓ Water tank status</span>
+        <span>✓ Report date and time</span>
+      </div>
+
+      <button type="button" id="downloadReportBtn"
+        class="btn btn-primary report-download-btn">
+        ↓ Download Report (CSV)
+      </button>
+
+      <p class="report-note" id="reportMessage" aria-live="polite">
+        Your report will be downloaded as a CSV file that opens in Excel.
+      </p>
+    </div>
+
+    <div class="report-illustration" aria-hidden="true">
+      <div class="report-file-icon">📄</div>
+      <h3>AquaSustain Solar</h3>
+      <p>System Monitoring Report</p>
+      <div class="report-file-line"></div>
+      <div class="report-file-line short"></div>
+      <div class="report-file-line"></div>
+      <div class="report-file-line medium"></div>
+      <span class="report-file-tag">CSV EXPORT</span>
+    </div>
+  </div>
+</section>
+
+
+
+
+    <section class="cta-section" id="contact">
+      <p class="eyebrow">BUILDING A BETTER TOMORROW</p>
+      <h2>Clean Water. Renewable Energy. A Smarter Future.</h2>
+      <p>
+        AquaSustain Solar explores how connected technology can help
+        improve sustainable water and energy management.
+      </p>
+      <a href="mailto:your-email@example.com" class="btn btn-light">
+        Contact the Project Team ↗
+      </a>
+      <p class="contact-note">Replace the example email with your project email.</p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <a href="#home" class="logo">☀ AquaSustain<span>Solar</span></a>
+    <p>© <span id="year"></span> AquaSustain Solar. Academic project demonstration.</p>
+  </footer>
+
+</body>
+</html>
